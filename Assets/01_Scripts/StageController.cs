@@ -20,7 +20,7 @@ public class StageController : MonoBehaviour
     private readonly Vector2 blockHalf = new Vector2(0.5f, 0.5f);
     private readonly int maxDragBlockCount = 3;
 
-    private List<BackgroundBlock> filledBlockList; 
+    private List<BackgroundBlock> filledBlockList;
 
     private void Awake()
     {
@@ -33,15 +33,34 @@ public class StageController : MonoBehaviour
 
         blockArrangeSystem.SetUp(blockCount, blockHalf, backgroundBlocks, this);
 
-        SpawnDragBlock();
+        StartCoroutine(SpawnDragBlock());
     }
 
-    private void SpawnDragBlock()
+    private IEnumerator SpawnDragBlock()
     {
         currentDragBlockCount = maxDragBlockCount;
 
         dragBlockSpawner.SpawnBlocks();
+
+        yield return new WaitUntil(() => IsCompleteSpawnBlocks());
     }
+
+    public bool IsCompleteSpawnBlocks()
+    {
+        int count = 0;
+
+        for (int i = 0; i < dragBlockSpawner.BlockSpawnPosition.Length; ++i)
+        {
+            if (dragBlockSpawner.BlockSpawnPosition[i].childCount != 0 && dragBlockSpawner.BlockSpawnPosition[i].GetChild(0).localPosition == Vector3.zero)
+            {
+                count++;
+            }
+        }
+        return count == dragBlockSpawner.BlockSpawnPosition.Length;
+    } 
+
+    
+
 
     public void AfterBlockArrangement(DragBlock block)
     {
@@ -59,8 +78,17 @@ public class StageController : MonoBehaviour
         currentDragBlockCount--;
         if(currentDragBlockCount <= 0)
         {
-            SpawnDragBlock();
+            yield return StartCoroutine(SpawnDragBlock());
         }
+
+        yield return new WaitForEndOfFrame();
+
+        if(IsGameOver())
+        {
+            Debug.Log("게임 오버");
+        }
+
+
     }
 
     private int CheckFilledLine()
@@ -130,5 +158,24 @@ public class StageController : MonoBehaviour
         }
 
         filledBlockList.Clear();
+    }
+
+    private bool IsGameOver()
+    {
+        int dragBlockCount = 0;
+        for(int i = 0; i < dragBlockSpawner.BlockSpawnPosition.Length; i++)
+        {
+            if(dragBlockSpawner.BlockSpawnPosition[i].childCount !=0)
+            {
+                dragBlockCount++;
+
+                if (blockArrangeSystem.IsPossibleArrangement(dragBlockSpawner.BlockSpawnPosition[i].GetComponentInChildren<DragBlock>()))
+                {
+                    return false;
+                }
+            }
+        }
+
+        return dragBlockCount != 0;
     }
 }

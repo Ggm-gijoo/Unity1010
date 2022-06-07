@@ -64,4 +64,33 @@ public class BlockArrangeSystem : MonoBehaviour
         }
         return true;
     }
+
+    public bool IsPossibleArrangement(DragBlock block)
+    {
+        for(int y = 0; y < blockCount.y; ++y)
+        {
+            for(int x = 0; x < blockCount.x; ++x)
+            {
+                int count = 0;
+                Vector3 position = new Vector3(-blockCount.x * 0.5f + blockHalf.x + x, blockCount.y * 0.5f - blockHalf.y - y, 0);
+                position.x += (blockCount.x % 2) * 0.5f;
+                position.y -= (blockCount.y % 2) * 0.5f;
+
+                for(int i = 0; i < block.ChildBlocks.Length; ++i)
+                {
+                    Vector3 blockPosition = block.ChildBlocks[i] + position;
+                    if (!IsBlockInsideMap(blockPosition)) break;
+                    if (!IsOtherBlockInThisBlock(blockPosition)) break;
+
+                    count++;
+                }
+
+                if (count == block.ChildBlocks.Length)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

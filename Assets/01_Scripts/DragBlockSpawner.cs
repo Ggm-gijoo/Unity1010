@@ -12,6 +12,7 @@ public class DragBlockSpawner : MonoBehaviour
     private GameObject[] blockPrefabs;
     [SerializeField]
     private Vector3 spawnGapAmount = new Vector3(10, 0, 0);
+    public Transform[] BlockSpawnPosition => blockSpawnPosition;
 
     public void SpawnBlocks()
     {
