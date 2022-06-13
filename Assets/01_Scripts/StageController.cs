@@ -13,6 +13,9 @@ public class StageController : MonoBehaviour
     [SerializeField]
     private BlockArrangeSystem blockArrangeSystem;
 
+    public int CurrentScore { private set; get; }
+    public int HighScore { private set; get; }
+
     private BackgroundBlock[] backgroundBlocks;
     private int currentDragBlockCount;
 
@@ -24,6 +27,9 @@ public class StageController : MonoBehaviour
 
     private void Awake()
     {
+        CurrentScore = 0;
+        HighScore = PlayerPrefs.GetInt("HighScore");
+
         filledBlockList = new List<BackgroundBlock>();
 
         backgroundBlockSpawner.SpawnBlocks(blockCount, blockHalf);
@@ -73,6 +79,9 @@ public class StageController : MonoBehaviour
 
         int filledLineCount = CheckFilledLine();
 
+        int lineScore = filledLineCount == 0 ? 0 : (int)(Mathf.Pow(2, filledLineCount - 1) * 10);
+        CurrentScore += block.ChildBlocks.Length + lineScore;
+
         yield return StartCoroutine(DestroyFilledBlocks(block));
 
         currentDragBlockCount--;
@@ -86,6 +95,11 @@ public class StageController : MonoBehaviour
         if(IsGameOver())
         {
             Debug.Log("게임 오버");
+
+            if(CurrentScore>= HighScore)
+            {
+                PlayerPrefs.SetInt("HighScore", CurrentScore);
+            }
         }
 
 
