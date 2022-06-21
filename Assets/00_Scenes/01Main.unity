@@ -180,15 +180,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b><color=#ff0000>1       0000      1       0000</color>
-
-    <color=#ff6600>
-    1      0     0      1      0     0</color>
-
-    <color=#ffff00> 1      0    
-    0      1      0     0</color>
-
-    <color=#00ff00>1       0000      1       0000</color></b>'
+  m_text: "<b><color=#ff0000>\u25A0       \u25A0\u25A0\u25A0\u25A0      \u25A0      
+    \u25A0\u25A0\u25A0\u25A0</color>\n<color=#ff6600> \u25A0      \u25A0     \u25A0     
+    \u25A0      \u25A0     \u25A0</color>\n<color=#ffff00> \u25A0      \u25A0    
+    \u25A0      \u25A0      \u25A0     \u25A0</color>\n<color=#00ff00>\u25A0      
+    \u25A0\u25A0\u25A0\u25A0      \u25A0       \u25A0\u25A0\u25A0\u25A0</color></b>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

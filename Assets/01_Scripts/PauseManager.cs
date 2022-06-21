@@ -15,7 +15,6 @@ public class PauseManager : MonoBehaviour
         imageBackGroundOverlay.SetActive(true);
         gameObject.SetActive(true);
         panelAnim.Play("OnPanel");
-        gameObject.GetComponent<CanvasGroup>().alpha = 1;
     }
 
     public void OnDisappear()

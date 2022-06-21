@@ -12,6 +12,8 @@ public class StageController : MonoBehaviour
     private DragBlockSpawner dragBlockSpawner;
     [SerializeField]
     private BlockArrangeSystem blockArrangeSystem;
+    [SerializeField]
+    private UiController uiController;
 
     public int CurrentScore { private set; get; }
     public int HighScore { private set; get; }
@@ -100,6 +102,7 @@ public class StageController : MonoBehaviour
             {
                 PlayerPrefs.SetInt("HighScore", CurrentScore);
             }
+            uiController.GameOver();
         }
 
 
