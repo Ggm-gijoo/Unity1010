@@ -117,7 +117,7 @@ public class StageController : MonoBehaviour
         for(int y = 0; y < blockCount.y; ++y)
         {
             int fillBlockCount = 0;
-            for (int x = 0; x < blockCount.x; ++x)
+            for (int x = 0; x < y; ++x)
             {
                 if (backgroundBlocks[y * blockCount.x + x].gameObject.GetComponent<SpriteRenderer>().color != Color.white)
                 {
@@ -126,9 +126,9 @@ public class StageController : MonoBehaviour
                 //if (backgroundBlocks[y * blockCount.x + x].BlockState == BlockState.Fill)
                 //    fillBlockCount++;
             }
-            if (fillBlockCount == blockCount.x)
+            if (fillBlockCount == y)
             {
-                for(int x = 0; x < blockCount.x; ++x)
+                for(int x = 0; x < y; ++x)
                 {
                     filledBlockList.Add(backgroundBlocks[y * blockCount.x + x]);
                 }
@@ -137,28 +137,28 @@ public class StageController : MonoBehaviour
 
         }
 
-        for (int x = 0; x < blockCount.x; ++x)
-        {
-            int fillBlockCount = 0;
-            for (int y = 0; y < blockCount.y; ++y)
-            {
-                if (backgroundBlocks[y * blockCount.x + x].gameObject.GetComponent<SpriteRenderer>().color != Color.white)
-                {
-                    fillBlockCount++;
-                }
-                //if (backgroundBlocks[y * blockCount.x + x].BlockState == BlockState.Fill)
-                //    fillBlockCount++;
-            }
-            if (fillBlockCount == blockCount.y)
-            {
-                for (int y = 0; y < blockCount.y; ++y)
-                {
-                    filledBlockList.Add(backgroundBlocks[y * blockCount.x + x]);
-                }
-                filledLineCount++;
-            }
+        //for (int x = 0; x < blockCount.x; ++x)
+        //{
+        //    int fillBlockCount = 0;
+        //    for (int y = 0; y < blockCount.y; ++y)
+        //    {
+        //        if (backgroundBlocks[y * blockCount.x + x].gameObject.GetComponent<SpriteRenderer>().color != Color.white)
+        //        {
+        //            fillBlockCount++;
+        //        }
+        //        //if (backgroundBlocks[y * blockCount.x + x].BlockState == BlockState.Fill)
+        //        //    fillBlockCount++;
+        //    }
+        //    if (fillBlockCount == blockCount.y)
+        //    {
+        //        for (int y = 0; y < blockCount.y; ++y)
+        //        {
+        //            filledBlockList.Add(backgroundBlocks[y * blockCount.x + x]);
+        //        }
+        //        filledLineCount++;
+        //    }
 
-        }
+        //}
 
         return filledLineCount;
     }

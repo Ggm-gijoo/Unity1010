@@ -47,7 +47,7 @@ public class DragBlock : MonoBehaviour
 
     private void OnMouseUp()
     {
-        float x = Mathf.RoundToInt(transform.position.x-BlockCount.x%2*0.5f)+BlockCount.x % 2*0.5f;
+        float x = Mathf.RoundToInt(transform.position.x - BlockCount.x % 2 * 0.5f) + BlockCount.x % 2 * 0.5f;
         //포지션의 x값(float)에서 x에 위치한 블록의 위치가 홀수인지 짝수인지 체크한다.
         //만약 홀수라면 포지션의 x값에서 1을 차감하고, 이를 반올림하여 정수의 형태로 만든다.
         //그리고 뺀 값을 다시 더한다.

@@ -15,7 +15,7 @@ public class BackgroundBlockSpawner : MonoBehaviour
         BackgroundBlock[] blocks = new BackgroundBlock[blockCount.x * blockCount.y];
         for(int y = 0; y < blockCount.y; y++)
         {
-            for(int x = 0; x < blockCount.x; x++)
+            for(int x = 0; x < y; x++)
             {
                 float px = -blockCount.x * 0.5f + blockHalf.x + x;
                 float py = blockCount.y * 0.5f - blockHalf.y - y;

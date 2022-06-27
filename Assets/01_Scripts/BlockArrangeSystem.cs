@@ -30,6 +30,7 @@ public class BlockArrangeSystem : MonoBehaviour
         for (int i = 0; i < block.ChildBlocks.Length; ++i)
         {
             Vector3 position = block.transform.position + block.ChildBlocks[i];
+            if(backgroundBlocks[PositionToIndex(position)] != null)
             backgroundBlocks[PositionToIndex(position)].FillBlock(block.Color);
         }
 
@@ -40,7 +41,7 @@ public class BlockArrangeSystem : MonoBehaviour
 
     private bool IsBlockInsideMap(Vector2 position)
     {
-        if (position.x < -blockCount.x * 0.5f + blockHalf.x || position.x > blockCount.x * 0.5f - blockHalf.x || position.y < -blockCount.y * 0.5f + blockHalf.y || position.y > blockCount.y * 0.5f - blockHalf.y)
+        if (position.x < -4.5f || position.x > -(position.y+1) || position.y < -blockCount.y * 0.5f + blockHalf.y || position.y > blockCount.y * 0.5f - blockHalf.y)
         {
             return false;
         }
@@ -58,9 +59,12 @@ public class BlockArrangeSystem : MonoBehaviour
     {
         int index = PositionToIndex(position);
 
-        if (backgroundBlocks[index].BlockState == BlockState.Fill)
+        if (backgroundBlocks[index] != null)
         {
-            return false;
+            if (backgroundBlocks[index].BlockState == BlockState.Fill)
+            {
+                return false;
+            }
         }
         return true;
     }
@@ -69,7 +73,7 @@ public class BlockArrangeSystem : MonoBehaviour
     {
         for(int y = 0; y < blockCount.y; ++y)
         {
-            for(int x = 0; x < blockCount.x; ++x)
+            for(int x = 0; x < y; ++x)
             {
                 int count = 0;
                 Vector3 position = new Vector3(-blockCount.x * 0.5f + blockHalf.x + x, blockCount.y * 0.5f - blockHalf.y - y, 0);

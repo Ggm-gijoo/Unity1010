@@ -914,11 +914,8 @@ MonoBehaviour:
   - {fileID: 4264764945056292867, guid: ddeec3694f377be4abf791cf13653fed, type: 3}
   - {fileID: 5027254812084238363, guid: 8505a410eb7d9f240bc4a2f2c76a0f2a, type: 3}
   - {fileID: 5139211470032878631, guid: a22835caa0d117443a1fe81ea29a1ab1, type: 3}
-  - {fileID: 135962675483003223, guid: 8064786cb4f7be040b19051fdb64b752, type: 3}
   - {fileID: 6979496299860784081, guid: 209b056fd1f80bf46910735d7cbc595d, type: 3}
   - {fileID: 2963613429248693584, guid: 7bdb77fa969984349b0944f8563b0c3c, type: 3}
-  - {fileID: 1381742309690072444, guid: 06256525d5b801d488a1256a12ae75b1, type: 3}
-  - {fileID: 2602167326076281002, guid: 5b79575f78dde3b41a7a0c549a4f9cc9, type: 3}
   spawnGapAmount: {x: 10, y: 0, z: 0}
 --- !u!1 &538996818
 GameObject:
@@ -1211,7 +1208,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 700238479}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2086102140}
+        m_TargetAssemblyTypeName: UiController, Assembly-CSharp
+        m_MethodName: BtnClickHome
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &700238479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1880,7 +1889,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1179005581
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2563,7 +2572,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1880879400}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2086102140}
+        m_TargetAssemblyTypeName: UiController, Assembly-CSharp
+        m_MethodName: BtnClickRestart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1880879400
 MonoBehaviour:
   m_ObjectHideFlags: 0
