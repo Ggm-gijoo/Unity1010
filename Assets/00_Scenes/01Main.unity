@@ -180,10 +180,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b><color=#ff0000>\u25A0       \u25A0\u25A0\u25A0\u25A0      \u25A0      
-    \u25A0\u25A0\u25A0\u25A0</color>\n<color=#ff6600> \u25A0      \u25A0     \u25A0     
-    \u25A0      \u25A0     \u25A0</color>\n<color=#ffff00> \u25A0      \u25A0    
-    \u25A0      \u25A0      \u25A0     \u25A0</color>\n<color=#00ff00>\u25A0      
+  m_text: "<b><color=#ff0000>\u25A0       \u25A0\u25A0       \u25A0       \u25A0\u25A0</color>\n<color=#ff6600>
+    \u25A0      \u25A0   \u25A0      \u25A0      \u25A0   \u25A0</color>\n<color=#ffff00>
+    \u25A0      \u25A0    \u25A0      \u25A0      \u25A0    \u25A0</color>\n<color=#00ff00>\u25A0      
     \u25A0\u25A0\u25A0\u25A0      \u25A0       \u25A0\u25A0\u25A0\u25A0</color></b>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

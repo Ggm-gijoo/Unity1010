@@ -910,12 +910,11 @@ MonoBehaviour:
   - {fileID: 3987625381689399571, guid: 72e5b5ab2e9a4cb47908182966986dfc, type: 3}
   - {fileID: 4733400311549132093, guid: eecde274df4e45342ad06c363ca29533, type: 3}
   - {fileID: 8790782963002751520, guid: a7cc5f0dd3e543140b2c4669cd5c253c, type: 3}
-  - {fileID: 5077783375067465375, guid: 97767496657108d41b10541fdc58f81e, type: 3}
-  - {fileID: 4264764945056292867, guid: ddeec3694f377be4abf791cf13653fed, type: 3}
   - {fileID: 5027254812084238363, guid: 8505a410eb7d9f240bc4a2f2c76a0f2a, type: 3}
   - {fileID: 5139211470032878631, guid: a22835caa0d117443a1fe81ea29a1ab1, type: 3}
   - {fileID: 6979496299860784081, guid: 209b056fd1f80bf46910735d7cbc595d, type: 3}
   - {fileID: 2963613429248693584, guid: 7bdb77fa969984349b0944f8563b0c3c, type: 3}
+  - {fileID: 5139211470032878631, guid: 05657164fecbc7641b01dbe2bd86f738, type: 3}
   spawnGapAmount: {x: 10, y: 0, z: 0}
 --- !u!1 &538996818
 GameObject:
@@ -1126,6 +1125,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backGroundBlockPrefab: {fileID: 522691399354096663, guid: 887a01067bd157c4ba79b9dad7cdad36, type: 3}
   orderInLayer: -2
+--- !u!1 &670337092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 670337094}
+  - component: {fileID: 670337093}
+  m_Layer: 0
+  m_Name: CameraShake
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &670337093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670337092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b699ca9c4e5ff74882519f88fa85d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+  cameraPos: {x: 0, y: 0, z: 0}
+  shakeRange: 0.05
+  duration: 0.2
+--- !u!4 &670337094
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670337092}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.5, y: 4.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &700238476
 GameObject:
   m_ObjectHideFlags: 0
@@ -1705,10 +1751,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b><color=#ff0000> \u25A0       \u25A0\u25A0\u25A0\u25A0      \u25A0      
-    \u25A0\u25A0\u25A0\u25A0</color>\n<color=#ff6600> \u25A0      \u25A0     \u25A0     
-    \u25A0      \u25A0     \u25A0</color>\n<color=#ffff00> \u25A0      \u25A0    
-    \u25A0      \u25A0      \u25A0     \u25A0</color>\n<color=#00ff00>\u25A0      
+  m_text: "<b><color=#ff0000>\u25A0       \u25A0\u25A0       \u25A0       \u25A0\u25A0</color>\n<color=#ff6600>
+    \u25A0      \u25A0   \u25A0      \u25A0      \u25A0   \u25A0</color>\n<color=#ffff00>
+    \u25A0      \u25A0    \u25A0      \u25A0      \u25A0    \u25A0</color>\n<color=#00ff00>\u25A0      
     \u25A0\u25A0\u25A0\u25A0      \u25A0       \u25A0\u25A0\u25A0\u25A0</color></b>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

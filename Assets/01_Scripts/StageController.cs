@@ -26,11 +26,13 @@ public class StageController : MonoBehaviour
     private readonly int maxDragBlockCount = 3;
 
     private List<BackgroundBlock> filledBlockList;
+    private CameraShake cameraShake;
 
     private void Awake()
     {
         CurrentScore = 0;
         HighScore = PlayerPrefs.GetInt("HighScore");
+        cameraShake = GameObject.Find("CameraShake").GetComponent<CameraShake>();
 
         filledBlockList = new List<BackgroundBlock>();
 
@@ -81,7 +83,14 @@ public class StageController : MonoBehaviour
 
         int filledLineCount = CheckFilledLine();
 
-        int lineScore = filledLineCount == 0 ? 0 : (int)(Mathf.Pow(2, filledLineCount - 1) * 10);
+        int lineScore; /*= filledLineCount == 0 ? 0 : (int)(Mathf.Pow(2, filledLineCount - 1) * 10);*/
+        Debug.Log(filledLineCount);
+        if(filledLineCount == 0) lineScore = 0;
+        else
+        {
+            cameraShake.Shake();
+            lineScore = (int)(Mathf.Pow(2, filledLineCount - 1) * 10);
+        }
         CurrentScore += block.ChildBlocks.Length + lineScore;
 
         yield return StartCoroutine(DestroyFilledBlocks(block));
@@ -110,7 +119,7 @@ public class StageController : MonoBehaviour
 
     private int CheckFilledLine()
     {
-        int filledLineCount = 0;
+        int filledLineCount = -1;
 
         filledBlockList.Clear();
 
@@ -166,7 +175,6 @@ public class StageController : MonoBehaviour
     private IEnumerator DestroyFilledBlocks(DragBlock block)
     {
         filledBlockList.Sort((a,b)=>(a.transform.position - block.transform.position).sqrMagnitude.CompareTo((b.transform.position - block.transform.position).sqrMagnitude));
-
         for (int i = 0; i < filledBlockList.Count; ++i)
         {
             filledBlockList[i].EmptyBlock();
